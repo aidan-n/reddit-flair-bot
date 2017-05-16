@@ -28,10 +28,7 @@ class FlairBot:
         else:
             raise FileNotFoundError('Config file, conf.ini, was not found.')
 
-        if self.conf.get('log', 'logging') == 'False':
-            self.logging = False
-        else:
-            self.logging = True
+        self.logging = not(self.conf.get('log', 'logging') == 'False')
 
         self.login()
 
